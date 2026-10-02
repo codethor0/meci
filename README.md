@@ -1,5 +1,7 @@
 # Memory-Egress Cryptographic Interlock (MECI)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23109676.svg)](https://doi.org/10.5281/zenodo.23109676)
+
 [![Release](https://img.shields.io/badge/release-v1.0.0-1f6feb.svg)](https://github.com/codethor0/meci/releases/tag/v1.0.0)
 [![Paper License](https://img.shields.io/badge/paper-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Code License](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)

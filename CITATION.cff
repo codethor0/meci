@@ -32,6 +32,7 @@ preferred-citation:
       orcid: "https://orcid.org/0009-0001-6573-385X"
   year: 2026
   version: "1.0.0"
+  doi: "10.5281/zenodo.23109676"
 references:
   - type: article
     title: "Mission-Invariant Architecture Morphing: Service-Graph Reconfiguration Against Post-Access Reconnaissance, with Cryptographic Epoch Isolation and Mission-Domain State Continuity"
