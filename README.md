@@ -1,10 +1,10 @@
 # Memory-Egress Cryptographic Interlock (MECI)
 
+[![Reproducibility](https://github.com/codethor0/meci/actions/workflows/reproducibility.yml/badge.svg?branch=main)](https://github.com/codethor0/meci/actions/workflows/reproducibility.yml)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23109676.svg)](https://doi.org/10.5281/zenodo.23109676)
-
-[![Release](https://img.shields.io/badge/release-v1.0.0-1f6feb.svg)](https://github.com/codethor0/meci/releases/tag/v1.0.0)
-[![Paper License](https://img.shields.io/badge/paper-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Code License](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
+[![Release](https://img.shields.io/badge/release-v1.0.0-brightgreen.svg)](https://github.com/codethor0/meci/releases/tag/v1.0.0)
+[![Paper License](https://img.shields.io/badge/paper-CC%20BY%204.0-brightgreen.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Code License](https://img.shields.io/badge/code-MIT-brightgreen.svg)](LICENSE)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0001--6573--385X-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0009-0001-6573-385X)
 
 **A Hardware-Enforced Capability-Separation Model for AI Memory Security**
@@ -23,7 +23,23 @@ MECI is a capability-separation pattern intended for hardware enforcement. It re
 
 The paper separates what is proved, what is checked, and what is proposed. Gated-egress safety and epoch non-resurrection are proved under stated obligations. A counterexample shows why those safety results alone do not imply noninterference, and a conditional noninterference theorem modulo an explicit release function shows what does. The finite safety core is specified in TLA+ and checked exhaustively within stated bounds. No current confidential-computing platform is claimed to implement MECI.
 
+## Architecture at a Glance
+
+### Capability cut
+
 ![MECI capability cut](docs/figures/capability-cut.png)
+
+### Protected-compute lifecycle
+
+![MECI lifecycle](docs/figures/lifecycle.png)
+
+### SafeOpen transaction
+
+![MECI SafeOpen transaction](docs/figures/safeopen-transaction.png)
+
+### Reference architecture
+
+![MECI reference architecture](docs/figures/reference-architecture.png)
 
 ## Core Contributions
 
@@ -38,9 +54,9 @@ The paper separates what is proved, what is checked, and what is proposed. Gated
 | Reproducibility | TLA+ specification checked by TLC, plus an independent reference checker with exactly matching state counts |
 | Refinement | Arm CCA/RMM path, Intel TDX and AMD SEV-SNP obligations, NVIDIA Hopper GPU quiescence contract |
 
-## SafeOpen Transaction
+## Continuous Verification
 
-![SafeOpen transaction](docs/figures/safeopen-transaction.png)
+The `Reproducibility` workflow reruns the dependency-free reference checker on every push and pull request to `main`, verifies the captured checker output byte-for-byte, validates release metadata and required artifacts, confirms all four architecture diagrams remain linked from this page, and also runs weekly as a maintenance check. GitHub Dependabot keeps the pinned GitHub Actions dependency current through reviewable pull requests.
 
 ## Model Checking Results
 
@@ -89,7 +105,7 @@ Captured outputs are in `scripts/meci_modelcheck_results.txt` and `spec/tlc_resu
 
 ## Citation
 
-See [`CITATION.cff`](CITATION.cff). The Zenodo DOI is added at release.
+See [`CITATION.cff`](CITATION.cff) for the preferred citation. The archival record is [Zenodo DOI 10.5281/zenodo.23109676](https://doi.org/10.5281/zenodo.23109676).
 
 ## History
 

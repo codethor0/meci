@@ -1,0 +1,85 @@
+name: Reproducibility
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: "17 13 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Reproduce bounded reference-checker output
+        run: |
+          set -euo pipefail
+          python3 scripts/meci_modelcheck.py > /tmp/meci_modelcheck_results.txt
+          diff -u scripts/meci_modelcheck_results.txt /tmp/meci_modelcheck_results.txt
+
+      - name: Validate release metadata and repository surface
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+
+          meta = json.loads(Path(".zenodo.json").read_text())
+          assert meta["title"].startswith("Memory-Egress Cryptographic Interlock")
+          assert meta["version"] == "1.0.0"
+          assert meta["license"] == "cc-by-4.0"
+          assert any(x.get("identifier") == "https://github.com/codethor0/meci" for x in meta["related_identifiers"])
+
+          cff = Path("CITATION.cff").read_text()
+          for needle in (
+              'cff-version: 1.2.0',
+              'type: software',
+              'version: "1.0.0"',
+              'repository-code: "https://github.com/codethor0/meci"',
+              'doi: "10.5281/zenodo.23109676"',
+          ):
+              assert needle in cff, needle
+
+          changelog = Path("CHANGELOG.md").read_text()
+          assert "## 1.0.0 (2026-10-02)" in changelog
+
+          required = [
+              "paper/MECI.pdf",
+              "paper/meci.tex",
+              "paper/abstract.txt",
+              "paper/LICENSE.md",
+              "spec/MECI.tla",
+              "spec/tlc_results.txt",
+              "scripts/meci_modelcheck.py",
+              "scripts/meci_modelcheck_results.txt",
+          ]
+          for item in required:
+              assert Path(item).is_file(), item
+
+          readme = Path("README.md").read_text()
+          figures = [
+              "docs/figures/capability-cut.png",
+              "docs/figures/lifecycle.png",
+              "docs/figures/safeopen-transaction.png",
+              "docs/figures/reference-architecture.png",
+          ]
+          for figure in figures:
+              assert Path(figure).is_file(), figure
+              assert f"]({figure})" in readme, figure
+
+          assert "10.5281/zenodo.23109676" in readme
+          assert "actions/workflows/reproducibility.yml" in readme
+          print("MECI repository verification: PASS")
+          PY
