@@ -1,0 +1,63 @@
+MECI bounded reference checker v1.0.0
+bounds: GEN_BOUND=3 MAX_EPOCH=3 hazards=D(derived),P,M,I,G,B,Q
+
+== Safety core: invariant  egress => Safe ==
+design     distinct  generated  depth  violations  permitI   epochI
+atomic          705       3085     21           0       ok       ok
+gencheck        858       3442     24           0       ok       ok
+buggy           938       3700     24          70       ok       ok
+dponly          980       4418     15         275       ok       ok
+noB             712       3103     19           7       ok       ok
+
+shortest counterexample, design=buggy (10 steps):
+   0 Init                 E=0 hazards={D,B,G,I,M,P,Q} gen=0 permit=- epoch=1
+   1 Clean(B)             E=0 hazards={D,G,I,M,P,Q} gen=0 permit=- epoch=1
+   2 Clean(G)             E=0 hazards={D,I,M,P,Q} gen=0 permit=- epoch=1
+   3 Clean(I)             E=0 hazards={D,M,P,Q} gen=0 permit=- epoch=1
+   4 Clean(M)             E=0 hazards={D,P,Q} gen=0 permit=- epoch=1
+   5 Clean(P)             E=0 hazards={D,Q} gen=0 permit=- epoch=1
+   6 Clean(Q)             E=0 hazards={D} gen=0 permit=- epoch=1
+   7 Revoke(e1)           E=0 hazards={} gen=0 permit=- epoch=1
+   8 CheckSafe            E=0 hazards={} gen=0 permit=g0 epoch=1
+   9 RestartProducer      E=0 hazards={Q} gen=1 permit=g0 epoch=1
+  10 OpenStalePermit      E=1 hazards={Q} gen=1 permit=- epoch=1
+
+shortest counterexample, design=dponly (3 steps):
+   0 Init                 E=0 hazards={D,B,G,I,M,P,Q} gen=0 permit=- epoch=1
+   1 Clean(P)             E=0 hazards={D,B,G,I,M,Q} gen=0 permit=- epoch=1
+   2 Revoke(e1)           E=0 hazards={B,G,I,M,Q} gen=0 permit=- epoch=1
+   3 OpenDPOnly           E=1 hazards={B,G,I,M,Q} gen=0 permit=- epoch=1
+
+shortest counterexample, design=noB (7 steps):
+   0 Init                 E=0 hazards={D,B,G,I,M,P,Q} gen=0 permit=- epoch=1
+   1 Clean(G)             E=0 hazards={D,B,I,M,P,Q} gen=0 permit=- epoch=1
+   2 Clean(I)             E=0 hazards={D,B,M,P,Q} gen=0 permit=- epoch=1
+   3 Clean(M)             E=0 hazards={D,B,P,Q} gen=0 permit=- epoch=1
+   4 Clean(P)             E=0 hazards={D,B,Q} gen=0 permit=- epoch=1
+   5 Clean(Q)             E=0 hazards={D,B} gen=0 permit=- epoch=1
+   6 Revoke(e1)           E=0 hazards={B} gen=0 permit=- epoch=1
+   7 OpenIgnoringB        E=1 hazards={B} gen=0 permit=- epoch=1
+
+== Release-equivalence test ==
+protected records: 16; delta = (severity bucket, tactic class)
+  secure (exports delta only)          violations=0
+  vulnerable (also exports token)      violations=32; first pair (0, 0, 0) vs (0, 0, 1)
+  vulnerable (exports raw severity)    violations=32; first pair (0, 0, 0) vs (1, 0, 0)
+
+== Epoch non-resurrection ==
+  persistent             revoked epochs tested=8 resurrected=0
+  rollback-vulnerable    revoked epochs tested=8 resurrected=8
+
+== Influence-graph sanity checks (HighReach) ==
+  endpoint labeled H, no edges             False -> True
+  relabel low buffer on an enabled path    False -> True
+  path through authorized declassifier     True  -> False
+  (row 1: transitive-only vs reflexive closure; row 2: before vs after relabel;
+   row 3: with vs without the authorized edge removed)
+
+== Bound sensitivity (distinct states / violations / shortest counterexample steps) ==
+  GEN_BOUND=3 MAX_EPOCH=3: atomic 705/0/-; gencheck 858/0/-; buggy 938/70/10; dponly 980/275/3; noB 712/7/7
+  GEN_BOUND=4 MAX_EPOCH=3: atomic 1044/0/-; gencheck 1542/0/-; buggy 1780/219/10; dponly 1464/420/3; noB 1054/10/7
+  GEN_BOUND=5 MAX_EPOCH=4: atomic 1562/0/-; gencheck 2834/0/-; buggy 3392/524/10; dponly 2200/638/3; noB 1577/15/7
+
+RESULT: correct designs PASS; weakened designs produce counterexamples as expected.

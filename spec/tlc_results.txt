@@ -1,0 +1,63 @@
+TLC results for MECI.tla (GenBound = 3, MaxEpoch = 3; invariants TypeOK, MECIInvariant, PermitInvariant, EpochInvariant; property NoResurrection)
+
+Design = atomic  (full check)
+  TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
+  3085 states generated, 705 distinct states found, 0 states left on queue.
+  The depth of the complete state graph search is 21.
+  MECIInvariant violations reported: 0; other invariant/property violations: 0
+
+Design = gencheck  (full check)
+  TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
+  3442 states generated, 858 distinct states found, 0 states left on queue.
+  The depth of the complete state graph search is 24.
+  MECIInvariant violations reported: 0; other invariant/property violations: 0
+
+Design = buggy  (-continue)
+  TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
+  3700 states generated, 938 distinct states found, 0 states left on queue.
+  The depth of the complete state graph search is 24.
+  MECIInvariant violations reported: 70; other invariant/property violations: 0
+
+Design = dponly  (-continue)
+  TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
+  4418 states generated, 980 distinct states found, 0 states left on queue.
+  The depth of the complete state graph search is 15.
+  MECIInvariant violations reported: 275; other invariant/property violations: 0
+
+Design = noB  (-continue)
+  TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
+  3103 states generated, 712 distinct states found, 0 states left on queue.
+  The depth of the complete state graph search is 19.
+  MECIInvariant violations reported: 7; other invariant/property violations: 0
+
+First counterexample for Design = buggy (no -continue; TLC BFS gives a shortest trace):
+  State 1: <Initial predicate>
+  State 2: <Next line 124, col 6 to line 124, col 32 of module MECI>
+  State 3: <Next line 124, col 6 to line 124, col 32 of module MECI>
+  State 4: <Next line 124, col 6 to line 124, col 32 of module MECI>
+  State 5: <Next line 124, col 6 to line 124, col 32 of module MECI>
+  State 6: <Next line 124, col 6 to line 124, col 32 of module MECI>
+  State 7: <Next line 124, col 6 to line 124, col 32 of module MECI>
+  State 8: <Revoke line 59, col 3 to line 61, col 65 of module MECI>
+  State 9: <Next line 129, col 7 to line 129, col 51 of module MECI>
+  State 10: <RestartProducer line 73, col 3 to line 78, col 60 of module MECI>
+  State 11: <Next line 131, col 7 to line 131, col 41 of module MECI>
+    State 9: <Next line 129, col 7 to line 129, col 51 of module MECI>
+    /\ egress = FALSE
+    /\ revoked = {1}
+    /\ gen = 0
+    /\ epoch = 1
+    /\ hazards = {}
+    /\ permit = TRUE
+    /\ permitGen = 0
+    
+    State 10: <RestartProducer line 73, col 3 to line 78, col 60 of module MECI>
+    /\ egress = FALSE
+    /\ revoked = {1}
+    /\ gen = 1
+    /\ epoch = 1
+    /\ hazards = {"Q"}
+    /\ permit = TRUE
+    /\ permitGen = 0
+    
+    State 11: <Next line 131, col 7 to line 131, col 41 of module MECI>

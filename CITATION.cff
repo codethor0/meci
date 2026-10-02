@@ -1,0 +1,49 @@
+cff-version: 1.2.0
+message: "If you use or build on MECI, please cite the paper in preferred-citation."
+type: software
+title: "Memory-Egress Cryptographic Interlock (MECI) Reference Artifacts"
+authors:
+  - given-names: "Thor"
+    family-names: "Thor"
+    alias: "Isaac Thor"
+    email: "codethor@gmail.com"
+    affiliation: "Independent Open-Source Researcher"
+    orcid: "https://orcid.org/0009-0001-6573-385X"
+version: "1.0.0"
+license: MIT
+repository-code: "https://github.com/codethor0/meci"
+keywords:
+  - AI agent security
+  - memory security
+  - egress control
+  - confidential computing
+  - noninterference
+  - declassification
+  - capability security
+  - trusted execution environments
+  - formal methods
+  - TLA+
+preferred-citation:
+  type: article
+  title: "Memory-Egress Cryptographic Interlock: A Hardware-Enforced Capability-Separation Model for AI Memory Security"
+  authors:
+    - given-names: "Thor"
+      family-names: "Thor"
+      orcid: "https://orcid.org/0009-0001-6573-385X"
+  year: 2026
+  version: "1.0.0"
+references:
+  - type: article
+    title: "Mission-Invariant Architecture Morphing: Service-Graph Reconfiguration Against Post-Access Reconnaissance, with Cryptographic Epoch Isolation and Mission-Domain State Continuity"
+    authors:
+      - given-names: "Thor"
+        family-names: "Thor"
+    doi: "10.5281/zenodo.23001045"
+    year: 2026
+  - type: article
+    title: "Attack Calculus: A Typed, Evidence-Aware State-Transition Calculus for Cross-Domain Cybersecurity Reasoning"
+    authors:
+      - given-names: "Thor"
+        family-names: "Thor"
+    doi: "10.5281/zenodo.23092790"
+    year: 2026

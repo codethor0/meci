@@ -1,0 +1,47 @@
+{
+  "title": "Memory-Egress Cryptographic Interlock: A Hardware-Enforced Capability-Separation Model for AI Memory Security",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "creators": [
+    {
+      "name": "Thor, Thor",
+      "affiliation": "Independent Open-Source Researcher",
+      "orcid": "0009-0001-6573-385X"
+    }
+  ],
+  "description": "AI agents increasingly combine persistent memory with network, tool, file, and device capabilities. A compromised or manipulated agent can then hold readable protected state and a path through which that state can leave the trust boundary at the same time, and no instruction-level control removes that combination. This paper develops the Memory-Egress Cryptographic Interlock (MECI), a capability-separation pattern intended for hardware enforcement that makes unreleased protected information unreachable from every enabled gated egress channel. MECI formalizes high-to-egress reachability as reflexive-transitive closure over a state-dependent influence graph, gives an explicit labeling rule for sealed objects, defines a generation-checked, linearizable SafeOpen operation evaluated on the post-commit configuration, and separates gated egress from ambient observations such as timing, access patterns, and memory-bus traffic. We prove gated-egress safety from two local implementation obligations, show that a finite hazard projection refines the graph invariant under a stated soundness condition, prove epoch non-resurrection, give a counterexample showing that memory-egress mutual exclusion does not imply noninterference, and prove noninterference modulo an explicit authorized-release function in which the MECI invariant, rather than an assumed output property, carries the gated-output step. The finite safety core is specified in TLA+ and checked exhaustively within stated bounds by TLC and by an independent dependency-free reference checker. The two agree exactly on reachable-state counts for all five modeled designs, find no violation in the atomic and generation-checked designs, and return shortest counterexamples for three deliberately weakened designs. The paper also gives an Arm CCA/RMM refinement path, a GPU quiescence contract, a representative declassification policy for an AI incident-triage agent, and a comparison with CHERI, seL4, and WASI. No current confidential-computing platform is claimed to implement MECI; the work is a formal specification and falsifiable research program.",
+  "license": "cc-by-4.0",
+  "version": "1.0.0",
+  "language": "eng",
+  "keywords": [
+    "AI agent security",
+    "memory security",
+    "egress control",
+    "confidential computing",
+    "noninterference",
+    "declassification",
+    "capability security",
+    "trusted execution environments",
+    "formal methods",
+    "TLA+"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/codethor0/meci",
+      "relation": "isSupplementedBy",
+      "resource_type": "software",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.23001045",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23092790",
+      "relation": "references",
+      "scheme": "doi"
+    }
+  ],
+  "notes": "Formal specification and falsifiable research program. Reports no hardware or performance measurements. The TLA+ specification, TLC configurations and output, and the dependency-free reference checker that reproduce every value in Table 2 are available in the related GitHub repository under the MIT License; this Zenodo preprint record contains only CC BY 4.0 paper artifacts. Concepts first shared publicly on 10 August 2026."
+}

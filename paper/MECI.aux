@@ -1,0 +1,210 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{llmbda}
+\citation{mcpitp}
+\citation{mcpshield}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{2}{section.1}\protected@file@percent }
+\newlabel{eq:orig}{{1}{2}{Introduction}{equation.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Contributions}{2}{subsection.1.1}\protected@file@percent }
+\citation{goguen1982}
+\citation{sabelfeld2003}
+\citation{myers2006}
+\citation{arden2021}
+\citation{llmbda}
+\citation{cheri}
+\citation{murray2013}
+\citation{sel4docs}
+\citation{wasi}
+\citation{cheri}
+\citation{murray2013}
+\citation{sel4docs}
+\citation{wasi}
+\citation{secverilog}
+\citation{cheang2023}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces MECI compared with established capability-security substrates.}}{3}{table.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{tab:cap}{{1}{3}{MECI compared with established capability-security substrates}{table.caption.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Research Position and Relation to Prior Work}{3}{section.2}\protected@file@percent }
+\newlabel{sec:related}{{2}{3}{Research Position and Relation to Prior Work}{section.2}{}}
+\citation{armmec}
+\citation{inteltdx}
+\citation{amdsnp}
+\citation{nvidiablog}
+\citation{ciphersteal}
+\citation{teefail}
+\citation{tdxray}
+\citation{hassan2025}
+\citation{miam}
+\citation{acn}
+\citation{teefail}
+\citation{intelteefail}
+\citation{amdsb3040}
+\citation{ciphersteal}
+\citation{tdxray}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Threat Model and Security Objective}{4}{section.3}\protected@file@percent }
+\newlabel{sec:threat}{{3}{4}{Threat Model and Security Objective}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Adversary}{4}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Two channel classes}{4}{subsection.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Capability-cut view of MECI. Protected information may reach gated egress only through an authorized declassifier and the SafeOpen reference monitor. Ambient observations are a separate security obligation because they can occur during protected computation.}}{5}{figure.caption.2}\protected@file@percent }
+\newlabel{fig:cut}{{1}{5}{Capability-cut view of MECI. Protected information may reach gated egress only through an authorized declassifier and the SafeOpen reference monitor. Ambient observations are a separate security obligation because they can occur during protected computation}{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Formal Model}{5}{section.4}\protected@file@percent }
+\newlabel{sec:model}{{4}{5}{Formal Model}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Objects, influence graph, and reachability}{5}{subsection.4.1}\protected@file@percent }
+\newlabel{eq:reach}{{4}{5}{Objects, influence graph, and reachability}{equation.4}{}}
+\newlabel{eq:highreach}{{5}{5}{Objects, influence graph, and reachability}{equation.5}{}}
+\newlabel{def:phig}{{1}{5}{Gated-egress invariant}{definition.1}{}}
+\citation{rogaway2002}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Sealed objects}{6}{subsection.4.2}\protected@file@percent }
+\newlabel{as:aead}{{1}{6}{Sealed-object confidentiality}{assumption.1}{}}
+\newlabel{def:seal}{{2}{6}{Sealed-object labeling}{definition.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Strict finite projection}{6}{subsection.4.3}\protected@file@percent }
+\newlabel{eq:phibit}{{6}{6}{Strict finite projection}{equation.6}{}}
+\newlabel{as:proj}{{2}{6}{Projection soundness}{assumption.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Concrete SafeOpen transaction. Cleanup may be multi-step and concurrent, but the final check and the egress-mask commit must be one linearized step of the trusted monitor. A generation counter invalidates stale safety snapshots.}}{7}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:safeopen}{{2}{7}{Concrete SafeOpen transaction. Cleanup may be multi-step and concurrent, but the final check and the egress-mask commit must be one linearized step of the trusted monitor. A generation counter invalidates stale safety snapshots}{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Safety predicate and linearizable SafeOpen}{7}{subsection.4.4}\protected@file@percent }
+\newlabel{eq:safe}{{7}{7}{Safety predicate and linearizable SafeOpen}{equation.7}{}}
+\newlabel{eq:so1}{{8}{7}{Safety predicate and linearizable SafeOpen}{equation.8}{}}
+\newlabel{eq:so2}{{9}{7}{Safety predicate and linearizable SafeOpen}{equation.9}{}}
+\citation{miam}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces MECI lifecycle. EXTERNAL (shaded) is the only state with egress open. Cleanup and verification may retry while egress stays closed; failures return to SEALED. The security-critical linearization point is T5.}}{8}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:life}{{3}{8}{MECI lifecycle. EXTERNAL (shaded) is the only state with egress open. Cleanup and verification may retry while egress stays closed; failures return to SEALED. The security-critical linearization point is T5}{figure.caption.4}{}}
+\newlabel{prop:stale}{{1}{8}{Stale-snapshot failure}{proposition.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Lifecycle}{8}{subsection.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Cryptographic Epoch Interlock}{8}{section.5}\protected@file@percent }
+\newlabel{sec:epoch}{{5}{8}{Cryptographic Epoch Interlock}{section.5}{}}
+\newlabel{eq:kdf}{{12}{8}{Cryptographic Epoch Interlock}{equation.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Epoch and domain key separation. All inputs enter the KDF in parallel through an injective encoding. The construction is abstract; no current TEE is claimed to expose these exact key controls.}}{9}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:kdf}{{4}{9}{Epoch and domain key separation. All inputs enter the KDF in parallel through an injective encoding. The construction is abstract; no current TEE is claimed to expose these exact key controls}{figure.caption.5}{}}
+\newlabel{eq:keyuse}{{13}{9}{Cryptographic Epoch Interlock}{equation.13}{}}
+\newlabel{as:revoke}{{3}{9}{Irreversible revocation}{assumption.3}{}}
+\newlabel{as:mono}{{4}{9}{Monotonic epoch}{assumption.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Safety Results}{9}{section.6}\protected@file@percent }
+\newlabel{sec:safety}{{6}{9}{Safety Results}{section.6}{}}
+\newlabel{ob:guard}{{1}{9}{Local egress guard}{obligation.1}{}}
+\newlabel{ob:create}{{2}{9}{Reachability creation}{obligation.2}{}}
+\newlabel{thm:safety}{{1}{9}{Gated-egress safety}{theorem.1}{}}
+\citation{goguen1982}
+\citation{sabelfeld2003}
+\citation{myers2006}
+\citation{arden2021}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Memory-egress mutual exclusion can hold while a pre-staged secret leaks. The fix is the $B$ hazard, which classifies unreleased export objects as high and requires explicit declassification.}}{10}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:export}{{5}{10}{Memory-egress mutual exclusion can hold while a pre-staged secret leaks. The fix is the $B$ hazard, which classifies unreleased export objects as high and requires explicit declassification}{figure.caption.6}{}}
+\newlabel{prop:proj}{{2}{10}{Projection refinement}{proposition.2}{}}
+\newlabel{thm:epoch}{{2}{10}{Epoch non-resurrection}{theorem.2}{}}
+\newlabel{cor:egress}{{1}{10}{Egress only after permanent revocation}{corollary.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Why Safety Is Not Noninterference}{10}{section.7}\protected@file@percent }
+\newlabel{sec:ni}{{7}{10}{Why Safety Is Not Noninterference}{section.7}{}}
+\newlabel{prop:export}{{3}{10}{Export-buffer counterexample}{proposition.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Authorized release and a concrete agent policy}{11}{subsection.7.1}\protected@file@percent }
+\newlabel{sec:release-fn}{{7.1}{11}{Authorized release and a concrete agent policy}{subsection.7.1}{}}
+\newlabel{eq:delta}{{15}{11}{Authorized release and a concrete agent policy}{equation.15}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Release equivalence and conditional noninterference}{11}{subsection.7.2}\protected@file@percent }
+\newlabel{as:sound}{{5}{11}{Influence-graph soundness}{assumption.5}{}}
+\newlabel{lem:lowdet}{{1}{11}{Low determinism of gated output}{lemma.1}{}}
+\newlabel{thm:ni}{{3}{11}{Noninterference modulo authorized release}{theorem.3}{}}
+\citation{acn}
+\citation{lamport2002}
+\citation{tlatools}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Rogue-agent walkthrough}{12}{subsection.7.3}\protected@file@percent }
+\newlabel{sec:rogue}{{7.3}{12}{Rogue-agent walkthrough}{subsection.7.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Model Checking: TLA+ and an Independent Reference Checker}{12}{section.8}\protected@file@percent }
+\newlabel{sec:check}{{8}{12}{Model Checking: TLA+ and an Independent Reference Checker}{section.8}{}}
+\citation{ciphersteal}
+\citation{tdxray}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Exhaustive results within $\mathit  {GenBound}=3$, $\mathit  {MaxEpoch}=3$. TLC 2.19 and the independent reference checker report identical values in every numeric column. Invariant checked: $\mathsf  {egress} \Rightarrow \mathsf  {Safe}$.}}{13}{table.caption.7}\protected@file@percent }
+\newlabel{tab:results}{{2}{13}{Exhaustive results within $\mathit {GenBound}=3$, $\mathit {MaxEpoch}=3$. TLC 2.19 and the independent reference checker report identical values in every numeric column. Invariant checked: $\mathsf {egress} \Rightarrow \Safe $}{table.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Shortest stale-snapshot class, found by both TLC and the reference checker. The decision happens at the open step: the unversioned design accepts the stale permit, while generation validation rejects it after protected work restarts.}}{13}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:stale}{{6}{13}{Shortest stale-snapshot class, found by both TLC and the reference checker. The decision happens at the open step: the unversioned design accepts the stale permit, while generation validation rejects it after protected work restarts}{figure.caption.8}{}}
+\citation{teefail}
+\citation{hassan2025}
+\citation{armmec}
+\citation{armrme}
+\citation{inteltdx}
+\citation{intelmktme}
+\citation{amdsnp}
+\citation{amdsb3023}
+\citation{nvidiawp}
+\citation{nvidiablog}
+\citation{armmec}
+\citation{armrme}
+\@writefile{toc}{\contentsline {section}{\numberline {9}Ambient Channels and the Side-Channel Boundary}{14}{section.9}\protected@file@percent }
+\newlabel{sec:ambient}{{9}{14}{Ambient Channels and the Side-Channel Boundary}{section.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.1}Ciphertext and microarchitectural observations}{14}{subsection.9.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.2}Physical memory-bus interposition}{14}{subsection.9.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10}Hardware Refinement Targets}{14}{section.10}\protected@file@percent }
+\newlabel{sec:hw}{{10}{14}{Hardware Refinement Targets}{section.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.1}Arm CCA/RMM refinement proposal}{14}{subsection.10.1}\protected@file@percent }
+\citation{cheang2023}
+\citation{inteltdx}
+\citation{intelmktme}
+\citation{amdsnp}
+\citation{amdsb3023}
+\citation{nvidiawp}
+\citation{nvidiablog}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Candidate platform primitives and remaining MECI obligations.}}{15}{table.caption.9}\protected@file@percent }
+\newlabel{tab:platforms}{{3}{15}{Candidate platform primitives and remaining MECI obligations}{table.caption.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.2}Intel and AMD: memory confidentiality is not an egress interlock}{15}{subsection.10.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.3}NVIDIA Hopper and the GPU quiescence contract}{15}{subsection.10.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Reference architecture. The agent can request a release but cannot change labels, the declassification policy, generation or epoch state, or the egress mask. Only the MECI Control Block can enable gated egress.}}{16}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:arch}{{7}{16}{Reference architecture. The agent can request a release but cannot change labels, the declassification policy, generation or epoch state, or the egress mask. Only the MECI Control Block can enable gated egress}{figure.caption.10}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {11}Reference Architecture}{16}{section.11}\protected@file@percent }
+\newlabel{sec:arch}{{11}{16}{Reference Architecture}{section.11}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {12}AI Agent Memory Semantics}{16}{section.12}\protected@file@percent }
+\newlabel{sec:agent}{{12}{16}{AI Agent Memory Semantics}{section.12}{}}
+\citation{mcpitp}
+\citation{mcpshield}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Proof and validation stack. The released artifacts cover the top two layers; hardware refinement remains platform work.}}{17}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:stack}{{8}{17}{Proof and validation stack. The released artifacts cover the top two layers; hardware refinement remains platform work}{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {13}Performance Model}{17}{section.13}\protected@file@percent }
+\newlabel{sec:perf}{{13}{17}{Performance Model}{section.13}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Proof obligations for a publication-grade MECI implementation.}}{18}{table.caption.12}\protected@file@percent }
+\newlabel{tab:obl}{{4}{18}{Proof obligations for a publication-grade MECI implementation}{table.caption.12}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {14}Failure Semantics}{18}{section.14}\protected@file@percent }
+\newlabel{sec:failure}{{14}{18}{Failure Semantics}{section.14}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {15}Open Proof Obligations}{18}{section.15}\protected@file@percent }
+\newlabel{sec:obligations}{{15}{18}{Open Proof Obligations}{section.15}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {16}Limitations}{18}{section.16}\protected@file@percent }
+\newlabel{sec:limits}{{16}{18}{Limitations}{section.16}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {17}Open Research, Reproducibility, and Release Boundary}{19}{section.17}\protected@file@percent }
+\newlabel{sec:release}{{17}{19}{Open Research, Reproducibility, and Release Boundary}{section.17}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {18}Conclusion}{19}{section.18}\protected@file@percent }
+\bibcite{llmbda}{1}
+\bibcite{mcpitp}{2}
+\bibcite{mcpshield}{3}
+\bibcite{goguen1982}{4}
+\bibcite{sabelfeld2003}{5}
+\bibcite{myers2006}{6}
+\bibcite{arden2021}{7}
+\bibcite{cheri}{8}
+\bibcite{murray2013}{9}
+\bibcite{sel4docs}{10}
+\bibcite{wasi}{11}
+\bibcite{secverilog}{12}
+\bibcite{cheang2023}{13}
+\bibcite{armmec}{14}
+\bibcite{inteltdx}{15}
+\bibcite{amdsnp}{16}
+\bibcite{nvidiablog}{17}
+\bibcite{ciphersteal}{18}
+\bibcite{teefail}{19}
+\bibcite{tdxray}{20}
+\bibcite{hassan2025}{21}
+\bibcite{miam}{22}
+\bibcite{acn}{23}
+\bibcite{intelteefail}{24}
+\bibcite{amdsb3040}{25}
+\bibcite{rogaway2002}{26}
+\bibcite{lamport2002}{27}
+\bibcite{tlatools}{28}
+\bibcite{armrme}{29}
+\bibcite{intelmktme}{30}
+\bibcite{amdsb3023}{31}
+\bibcite{nvidiawp}{32}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Reproducibility Manifest}{21}{appendix.A}\protected@file@percent }
+\newlabel{app:manifest}{{A}{21}{Reproducibility Manifest}{appendix.A}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}TLA+ Safety Specification Excerpt}{22}{appendix.B}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {C}Platform Refinement Checklist}{22}{appendix.C}\protected@file@percent }
+\gdef \@abspage@last{23}
