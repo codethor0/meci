@@ -110,3 +110,7 @@ See [`CITATION.cff`](CITATION.cff) for the preferred citation. The archival reco
 ## History
 
 The concepts were first shared publicly on 10 August 2026. Version 1.0.0 is the archival release; see [`CHANGELOG.md`](CHANGELOG.md) for what changed.
+
+## Support
+
+If this research is useful to you, you can support continued independent work through [GitHub Sponsors](https://github.com/sponsors/codethor0).
